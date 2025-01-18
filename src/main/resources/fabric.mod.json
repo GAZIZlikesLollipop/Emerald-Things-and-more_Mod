@@ -1,0 +1,54 @@
+{
+	"schemaVersion": 1,
+	"id": "emerald-things-and-more",
+	"version": "${version}",
+	"name": "emerald things and more",
+	"description": "This mod adds new items for your vanila minecraft! (and not only)",
+	"authors": [
+		"lollipop"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/emerald-things-and-more/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "com.example.etam.EmeraldThingsAndMore",
+				"adapter": "kotlin"
+			}
+		],
+		"client": [
+			{
+				"value": "com.example.etam.EmeraldThingsAndMoreClient",
+				"adapter": "kotlin"
+			}
+		],
+		"fabric-datagen": [
+			{
+				"value": "com.example.etam.EmeraldThingsAndMoreDataGenerator",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"emerald-things-and-more.mixins.json",
+		{
+			"config": "emerald-things-and-more.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
