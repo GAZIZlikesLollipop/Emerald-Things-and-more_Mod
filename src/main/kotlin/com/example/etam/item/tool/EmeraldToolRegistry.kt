@@ -1,62 +1,57 @@
 package com.example.etam.item.tool
 
-import net.minecraft.util.registry.Registry
-import net.minecraft.util.Identifier
-import net.minecraft.item.ItemGroup
-import net.minecraft.item.Item.Settings as FabricItemSettings
-import net.minecraft.item.PickaxeItem
-import net.minecraft.item.AxeItem
-import net.minecraft.item.ShovelItem
-import net.minecraft.item.SwordItem
-import net.minecraft.item.HoeItem
-import net.minecraft.item.ToolMaterial
+import net.minecraft.item.*
 import net.minecraft.recipe.Ingredient
-import net.minecraft.item.Items
+import net.minecraft.registry.Registries
+import net.minecraft.registry.Registry
+import net.minecraft.util.Identifier
+import net.minecraft.item.Item.Settings as FabricItemSettings
+
 
 object EmeraldToolMaterial : ToolMaterial {
     override fun getDurability() = 750  // Прочность (как у алмазного)
     override fun getMiningSpeedMultiplier() = 8.0f  // Скорость добычи
     override fun getAttackDamage() = 6.5f  // Урон от оружия
     override fun getMiningLevel() = 2  // Уровень добычи (подходит для железных и выше)
-    override fun getEnchantability() = 12  // Шанс на зачарование
+    override fun getEnchantability() = 10  // Шанс на зачарование
     override fun getRepairIngredient(): Ingredient {
         return Ingredient.ofItems(Items.EMERALD)  // Для ремонта используем изумруды
     }
 }
 
 val EMERALD_PICKAXE = PickaxeItem(
-    CustomToolMaterial,
+    EmeraldToolMaterial,
     1,  // Урон
     -2.8f,  // Скорость атаки
-    FabricItemSettings().group(ItemGroup.TOOLS) // Группа предметов
+    Item.Settings() // Группа предметов
 )
 
 val EMERALD_AXE = AxeItem(
-    CustomToolMaterial,
+    EmeraldToolMaterial,
     6.0f, // Урон
     -3.0f, // Скорость атаки
-    FabricItemSettings().group(ItemGroup.TOOLS)
+    Item.Settings()
 )
 
 val EMERALD_SHOVEL = ShovelItem(
-    CustomToolMaterial,
+    EmeraldToolMaterial,
     6.5f, // Урон
     -3.0f, // Скорость атаки
-    FabricItemSettings().group(ItemGroup.TOOLS)
+    Item.Settings()
 )
 
 val EMERALD_SWORD = SwordItem(
-    CustomToolMaterial,
+    EmeraldToolMaterial,
     3, // Урон
     -2.4f, // Скорость атаки
-    FabricItemSettings().group(ItemGroup.COMBAT)
+    Item.Settings()
 )
 
 val EMERALD_HOE = HoeItem(
-    CustomToolMaterial,
+    EmeraldToolMaterial,
     1, // Урон
     -1.0f, // Скорость атаки
-    FabricItemSettings().group(ItemGroup.TOOLS)
+    Item.Settings()
 )
 
 fun registerItems() {
